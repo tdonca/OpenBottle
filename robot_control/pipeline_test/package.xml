@@ -52,6 +52,8 @@
   <build_depend>huroco_right_arm</build_depend>
   <build_depend>huroco_left_arm</build_depend>
   <build_depend>right_gripper_receiver</build_depend>
+  <build_depend>action_manager</build_depend>
+  
   <build_depend>moveit_ros_perception</build_depend>
   <build_depend>moveit_ros_planning_interface</build_depend>
   <build_depend>pluginlib</build_depend>
@@ -69,6 +71,7 @@
   <run_depend>huroco_right_arm</run_depend>
   <run_depend>huroco_left_arm</run_depend>
   <run_depend>right_gripper_receiver</run_depend>
+  <run_depend>action_manager</run_depend>
   <run_depend>moveit_ros_perception</run_depend>
   <run_depend>moveit_ros_planning_interface</run_depend>
   <run_depend>pluginlib</run_depend>

@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   tf
   baxter_core_msgs
+  huroco_right_arm
 )
 
 ## System dependencies are found with CMake's conventions
@@ -116,7 +117,7 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES huroco_grasping
-  CATKIN_DEPENDS roscpp rospy std_msgs std_srvs baxter_core_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs std_srvs baxter_core_msgs 
 #  DEPENDS system_lib
 )
 
@@ -147,7 +148,7 @@ add_executable(huroco_grasping src/grasping_point.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(huroco_grasping ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(huroco_grasping ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}  huroco_right_arm_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(huroco_grasping

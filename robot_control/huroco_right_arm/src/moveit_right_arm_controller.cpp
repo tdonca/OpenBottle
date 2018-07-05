@@ -2,8 +2,8 @@
 #include "huroco_right_arm/right_arm_server.h"
 
 
-#define SUCCESS 1
-#define FAILURE 0
+const int SUCCESS = 1;
+const int FAILURE = 0;
 
 
 ArmManipulator::ArmManipulator(moveit::planning_interface::MoveGroupInterface &group)
@@ -61,11 +61,11 @@ int ArmManipulator::tryComputingCartesian(moveit::planning_interface::MoveGroupI
 int ArmManipulator::tryPlanning(moveit::planning_interface::MoveGroupInterface &group, moveit::planning_interface::MoveGroupInterface::Plan &plan)
 {
 	int planning_times = 0;
-	int planning_status;
+	bool planning_status;
 
 	while(ros::ok() && planning_times < ATTEMPTS) {
 		planning_times += 1;
-		planning_status = group.plan(plan);
+		planning_status = ( group.plan(plan) == moveit_msgs::MoveItErrorCodes::SUCCESS );
 		if(planning_status) {
 			ROS_INFO("Generate a plan successfully.");
 			return planning_status;
@@ -163,11 +163,11 @@ int ArmManipulator::initPose()
 	moveit::planning_interface::MoveGroupInterface::Plan plan;
 
 	int joint_space_status = tryPlanning(move_group_, plan);
-	int execute_status;
+	bool execute_status;
 
 	if(joint_space_status) {
 		ROS_INFO("Rotating joints");
-		execute_status = move_group_.execute(plan);
+		execute_status = (move_group_.execute(plan) == moveit_msgs::MoveItErrorCodes::SUCCESS);
 		return execute_status;
 	}
 	else {

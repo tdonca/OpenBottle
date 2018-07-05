@@ -76,12 +76,12 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-   DEPENDENCIES
-   std_msgs
-   std_srvs
-   geometry_msgs
-)
+#~ generate_messages(
+   #~ DEPENDENCIES
+   #~ std_msgs
+   #~ std_srvs
+   #~ geometry_msgs
+#~ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -115,7 +115,7 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES pipeline_test
-  CATKIN_DEPENDS roscpp rospy std_msgs std_msgs std_srvs message_runtime moveit_core huroco_right_arm huroco_left_arm right_gripper_receiver
+  CATKIN_DEPENDS roscpp rospy std_msgs std_msgs std_srvs message_runtime moveit_core huroco_right_arm huroco_left_arm right_gripper_receiver action_manager
 #  DEPENDS system_lib right_gripper_receiver
 )
 
