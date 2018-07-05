@@ -1,5 +1,0 @@
-string sentence
----
-string[] action_seq
-float64[] action_prob
-bool success

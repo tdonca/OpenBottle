@@ -1,7 +1,0 @@
-bool update
-bool reinit
----
-float64[] current
-float64[] next
-float64[] prior
-bool success
